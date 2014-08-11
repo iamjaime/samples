@@ -1,0 +1,67 @@
+/* 
+    Name       : Tic Tac Toe
+    Created on : Aug 8, 2014, 9:40:21 AM
+    Author     : Jaime Bernal
+*/
+
+/**********************************
+    Table Of Contents 
+***********************************/
+/*
+--- 1. Main Styles
+--- 2. Tic Tac Toe Board
+---
+*/
+
+
+/**********************************
+  1.  Main Styles
+***********************************/
+h1,h2,h3,h4,h5,h6{
+    color:#2d2d2d;
+}
+
+body{
+    font-size: 40px;
+}
+
+/**********************************
+  2.  Tic Tac Toe Board 
+***********************************/
+section#game{
+    margin: 0 auto;
+    width:300px;
+}
+
+div.board{
+    max-width: 300px;
+}
+div.board_cell{
+    float: left;
+    width:33.3333%;
+    height:100px;
+    padding: 25px;
+    text-align: center;
+}
+div.board_cell:nth-child(3n-1){
+    border-bottom:1px solid #ccc;
+}
+div.board_cell:nth-child(3n){
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+div.board_cell:nth-child(3n-2){
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+div.board_cell:nth-child(7n), div.board_cell:nth-child(8n), div.board_cell:nth-child(9n){
+    border-bottom: 0;
+}
+div.winner{
+    background:darkgreen;
+    color:#FFF;
+}
+div.draw{
+    background:darkred;
+    color:#FFF;
+}
