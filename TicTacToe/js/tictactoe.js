@@ -2,27 +2,35 @@
 $(document).ready(function() {
 
     var count = 0;
-
+    
     $(".board_cell").live("click", function() {
-        
         count++;
 
         //lets get the target that was clicked on...
         var cell = $(this).attr("data-target");
-
+        var rules = {
+            p1 : "player",
+            p2 : "player"
+        };
+        
         //now lets do some ajax :)
         $.ajax({
             url: "/tictactoe/move.php",
             dataType: "json",
             data: {
                 box: cell,
-                thecount: count
+                thecount: count,
+                settings: rules
+            },
+            beforeSend: function(){
+              $(this).addClass("loading-bg");
             },
             success: function(info) {
+                $(this).removeClass("loading-bg");
                 if (info)
                 {
                     //console.log(info.board);
-                    console.log(info);
+                    //console.log(info);
                     
                     //lets set the new count...
                     count = info.count;
@@ -60,6 +68,9 @@ $(document).ready(function() {
                     }
 
                 }
+            },
+            complete: function(){
+             $(this).removeClass("loading-bg");  
             }
         });
 

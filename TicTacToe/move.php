@@ -1,6 +1,9 @@
 <?php
 //lets create a session....
 session_start();
+
+//Lets get the HTTP REQUEST TYPE and handle it....
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
 //init the class....
 include 'includes/tictactoe.class.php';
 /*
@@ -9,21 +12,17 @@ include 'includes/tictactoe.class.php';
  * 2.) player vs cpu
  * 3.) cpu vs player
  */
-$settings = array(
-    'p1' => "player",
-    'p2' => "player"
-);
-
+$settings = $_GET['settings'];
 $ttt = new Tictactoe($settings);
-
-//Lets get the HTTP REQUEST TYPE and handle it....
-if ($_SERVER['REQUEST_METHOD'] == "GET") {
     
     //lets filter the box value....(trust no one :D )
     $box = filter_input(INPUT_GET, 'box', FILTER_SANITIZE_NUMBER_INT);
     $count = filter_input(INPUT_GET, 'thecount', FILTER_SANITIZE_NUMBER_INT);
     $reset = filter_input(INPUT_GET, "resetBoard", FILTER_SANITIZE_NUMBER_INT);
-
+    
+    
+    
+    
     if($reset){
         $data = json_encode(array(
             'board' => $ttt->gameStart(true),
