@@ -20,7 +20,7 @@
     </head>
     <body>
         <section id="game">
-            <h4>TicTacToe - By Jaime Bernal</h4>
+            <h4>TicTacToe - By Jaime Bernal - player vs player</h4>
             <?php 
                 $cpu_goes_first = FALSE;
                 echo $ttt->gameStart($cpu_goes_first); 

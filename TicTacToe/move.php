@@ -11,7 +11,7 @@ include 'includes/tictactoe.class.php';
  */
 $settings = array(
     'p1' => "player",
-    'p2' => "cpu"
+    'p2' => "player"
 );
 
 $ttt = new Tictactoe($settings);
