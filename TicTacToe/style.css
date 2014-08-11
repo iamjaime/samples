@@ -25,6 +25,10 @@ body{
     font-size: 40px;
 }
 
+p{
+    font-size:18px;
+}
+
 /**********************************
   2.  Tic Tac Toe Board 
 ***********************************/
@@ -64,4 +68,8 @@ div.winner{
 div.draw{
     background:darkred;
     color:#FFF;
+}
+.loading-bg{
+    background:url("ajax-loader.gif") no-repeat center center;
+    background-size: 50px 50px;
 }
