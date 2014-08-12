@@ -10,7 +10,7 @@ function Tictactoe(settings, boardClass, boardCellClass, timeout, ajaxURL, ajaxL
     this.boardCellClass = boardCellClass || ".board_cell"; //the board cell class
     this.timeout = timeout || 2000; //default time for fading out the board
     this.ajaxURL = ajaxURL || "/tictactoe/move.php"; //the ajax URL that we will use
-    this.ajaxLoaderClass = ajaxLoaderClass || '.loading-bg'; //the ajax loader. (used before we send request)
+    this.ajaxLoaderClass = ajaxLoaderClass || 'loading-bg'; //the ajax loader. (used before we send request)
    
 }
 
@@ -36,11 +36,12 @@ var that = this;
                 settings: settings
             },
             beforeSend: function() {
-                $(this).addClass(ajaxLoaderClass);
+                console.log("beforeSend success!");
+                $(boardCellClass + "[data-target=" + cell + "]").addClass(ajaxLoaderClass);
             },
             success: function(info) {
                 
-                $(this).removeClass(ajaxLoaderClass);
+                $(boardCellClass + "[data-target=" + cell + "]").removeClass(ajaxLoaderClass);
 
                 //lets set the new count...
                 count = info.count;
