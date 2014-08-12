@@ -28,8 +28,9 @@ class Tictactoe {
      * @var array the game settings/game options. 
      */
     public $rules = array(
-        'p1' => self::HUMAN, //default value (player 1 will always be a human unless specified otherwise)
-        'p2' => self::AI  //default value (player 2 will be the computer :D )
+        'p1' => self::AI, //default value (player 2 will be the computer :D )
+        'p2' => self::HUMAN,  //default value (player 1 will always be a human unless specified otherwise)
+        'cpu' => true //default computer goes first!
     );
 
     /**
@@ -37,7 +38,7 @@ class Tictactoe {
      * @param array $settings an array of the game types.
      */
     function __construct($settings = NULL) {
-        if ($settings != NULL) {
+        if ($settings !== NULL) {
             $this->rules = $this->settings($settings);
         }
     }
@@ -147,12 +148,12 @@ class Tictactoe {
 
     /**
      * 
-     * @param BOOL $cpu does the cpu go first?
      * @return string the board
      */
-    public function gameStart($cpu = FALSE) {
+    public function gameStart() {
         //lets kill the previous session....
         $this->gameOver();
+        $cpu = $this->rules['cpu'];
         return $this->makeBoard($cpu);
     }
 

@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php include("includes/tictactoe.class.php"); ?>
-<?php $ttt = new Tictactoe(); ?>
+<?php $ttt = new Tictactoe(array('cpu' => false)); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,15 +15,15 @@
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <!--The Tic Tac Toe Script -->
+        <script src="js/ttt-class.js" type="text/javascript"></script>
         <script src="js/tictactoe.js" type="text/javascript"></script>
-        <script src="js/ttt.js" type="text/javascript"></script>
+        
     </head>
     <body>
         <section id="game">
             <h4>TicTacToe - By Jaime Bernal</h4>
             <?php 
-                $cpu_goes_first = FALSE;
-                echo $ttt->gameStart($cpu_goes_first);
+                echo $ttt->gameStart();
             ?>
         </section>
         <!-- Latest compiled and minified JavaScript -->
