@@ -28,8 +28,8 @@ class Tictactoe {
      * @var array the game settings/game options. 
      */
     public $rules = array(
-        'p1' => self::AI, //default value (player 2 will be the computer :D )
-        'p2' => self::HUMAN,  //default value (player 1 will always be a human unless specified otherwise)
+        'p1' => self::AI, //default value (player 1 will be the computer :D )
+        'p2' => self::HUMAN,  //default value (player 2 will always be a human unless specified otherwise)
         'cpu' => true //default computer goes first!
     );
 
